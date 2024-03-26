@@ -1,7 +1,4 @@
-/*  ⚠️⚠️ Ejercicios de funciones - es IMPORTANTE que la funcion se llame como se pide, esto hará que pueda correr los test. ⚠️⚠️
-    ⚠️⚠️ No es necesario que se ejecute a la funcion. ya se ejecuta desde los test. ⚠️⚠️    */
 
-const { contains } = require("micromatch")
 
 //Debes crear un funcion que retorne un mensaje de bienvenida con nombre y apellido de la persona
 //Ejemplo "Bienvenido Leonardo Avila" -> IMPORTANTE la funcion tiene que llamarse 'bienvenida'
@@ -13,6 +10,7 @@ const bienvenida =(nombre, apellido)=> `Bienvenido ${nombre} ${apellido}`
 // Crea una funcion el cual cumpla la funcion de una calculadora.. tiene que recibir 3 parametros num1, operador y num2
 // IMPORTANTE -> la funcion debe llamarse 'calc'
 // Tu código:
+
 
     const calc=(num1,operador,num2)=>{
         if (operador=="-"){
@@ -72,6 +70,7 @@ const temp=(max , min , porcentaje)=>{
 // IMPORTANTE -> la funcion debe llamarse 'checkPassword'
 // Tu código:
 
+
 const checkPassword=(contra)=>contra.length >=8 ? "La contraseña es segura" : "La contraseña es insegura" 
 
 
@@ -79,6 +78,7 @@ const checkPassword=(contra)=>contra.length >=8 ? "La contraseña es segura" : "
 // Crea una función que reciba un string como parámetro y devuelva el mismo string pero con todas las palabras en orden inverso.
 // IMPORTANTE -> la funcion debe llamarse 'stringInverso'
 // Tu código:
+
 const stringInverso=(palabra)=>{
     let nuevaPalabra=""
     for (let i = palabra.length-1; i >=0 ; i--) {
