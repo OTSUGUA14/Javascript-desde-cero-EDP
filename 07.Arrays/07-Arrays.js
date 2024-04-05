@@ -1,3 +1,5 @@
+const { array } = require("yargs");
+
 function primerElemento(arg){
     //dado el array pasado por parametro, tendras que devolver el primer elemento
     // tu código:
@@ -35,34 +37,71 @@ function primerasCondicionales(arg){
     // longitud de array menor que 3 retornar: 'Este array es menor a 3'
     // longitud de array igual a 0 retornar: 'Este array no contiene elementos'
     // tu código aqui:
-    
+    if(arg ==0){
+        return 'Este array no contiene elementos'
+    }
+
+    else if (arg.length>3){
+        return 'Este array es mayor a 3'
+    }else if(arg.length==3){
+        return 'Este array es igual a 3'
+    }else if(arg.length<3){
+        return 'Este array es menor a 3'
+    }
+   
 }
 
 function sumandoEnUno(arg){
     // dado el array de numeros enteros pasado por parametro, a cada elemento del array
     // tienes que sumarle 1.. ejemplo: [4 , 5, 6] -> [5 , 6, 7] 
     // tu código aqui:
-
+    for (let i = 0; i < arg.length; i++) {
+        arg[i] =arg[i]+1;
+        
+    }
+    return arg
 }
 
 function valorMaximo(arr){
     //Se pasa un array de enteros, tendras que iterar por cada elemeto del array y encontrar el valor más alto y devolverlo
     //ejemplo -> [1 , 5, 4, 10, 99 ,2, 42, 3] - deberia devolver 99
     // Tu codigo:
-
+    numeroMayor=arr[0]
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i]>numeroMayor){
+            numeroMayor=arr[i]
+        }
+        
+    }
+    return numeroMayor
 }
 
 function valorMinimo(arr){
     //Se pasa un array de enteros, tendras que iterar por cada elemeto del array y encontrar el valor más bajo y devolverlo
     //ejemplo -> [ 5, 4, 10, 99 ,2, 42, 3] - deberia devolver 2
     // Tu codigo:
-
+    numeroMenor=arr[0]
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i]<numeroMenor){
+            numeroMenor=arr[i]
+        }
+        
+    }
+    return numeroMenor
 }
 
 function cantPares(arr){
     //Se para un array de enteros, tienes que iterar por los elementos y contar la cantidad de numeros que son pares
     // devolver la cantidad de pares total. Ejemplo: [1,2,3,4,5,6,7,8,9] -> 4
     // Tu codigo:
+    numeroPar=0
+    for (let i = 0; i < arr.length; i++) {
+        if ((arr[i]%2)==0){
+            numeroPar++
+        }
+        
+    }
+    return numeroPar
 
 }
 
@@ -70,6 +109,16 @@ function eliminarDuplicado(arr){
     // Se para un array de enteros, tienes que iterar por los elementos y eliminar los duplicados, y devolver el array nuevo sin duplicado.
     // ejemplo: [1,1,2,4,5,6,6,7,1,8,9] -> [1,2,4,5,6,7,8,9]
     // Tu codigo:
+    nuevoAr=[]
+    for (let i = 0; i < arr.length; i++) {
+        if (nuevoAr.includes(arr[i])){
+            continue;
+        }else{
+            nuevoAr.push(arr[i])
+        }
+        
+    }
+    return nuevoAr
     
 }
 
@@ -77,13 +126,25 @@ function enOrden(arr, ascendente = true){
     //Se para un array de enteros de forma desordenada, tendras que devolver el mismo array pero de forma ordenada
     //de menor a mayor. ejemplo -> [7, 2, 4, 6, 1, 3, 5] -> [1, 2, 3, 4, 5, 6, 7]
     //Tu codigo:
-
+    nuevoAr=arr.sort((a,b)=>a-b)
+    return nuevoAr
 }
 
 function dosEnUno(arr1, arr2){
     //Escribe una función que reciba dos arrays y devuelva un nuevo array que contenga todos los elementos de ambos arrays, sin duplicados.
     //Tu codigo:
     // return arr1.concat(arr2);
+    conjuntoArr=arr1.concat(arr2)
+    nuevoAr=[];
+    for (let i = 0; i < conjuntoArr.length; i++) {
+        if (nuevoAr.includes(conjuntoArr[i])){
+            continue;
+        }else{
+            nuevoAr.push(conjuntoArr[i])
+        }
+        
+    }
+    return conjuntoArr
 
 }
 
