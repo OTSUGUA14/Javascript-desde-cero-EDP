@@ -1,18 +1,19 @@
 function primerElemento(arg){
     //dado el array pasado por parametro, tendras que devolver el primer elemento
     // tu código:
-
+    return arg[0]
 }
 
 function ultimoElemento(arg){
     //dado el array pasado por parametro, tendras que devolver el ultimo elemento
     // tu código aqui:
-
+    return arg[arg.length-1]
 }
 
 function nuevoArray(arg){
     //dado el array pasado por parametro retorna su longitud
     // tu código aqui:
+    return arg.length
 
 }
 
@@ -21,6 +22,9 @@ function changeArray(arr){
     //el ultimo elemento por 'array'
     //retorna el nuevo valor
     // tu código aqui:
+    arr[0]='Aprendiendo';
+    arr[arr.length-1]='array';
+    return arr
 
 }
 
