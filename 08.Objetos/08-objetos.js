@@ -1,6 +1,9 @@
 
 // Completa el siguiente objeto 'alumnos' que tenga como primera propiedad nombre, segunda propiedad apellido, tercera edad y cuarta examen
 // nombre y apellido deben tener como valor un string, edad un entero y examen un booleano.
+
+const { nuevoArray } = require("../07.Arrays/07-Arrays");
+
 // Tu código:
 let alumnos = {}
 
@@ -49,7 +52,14 @@ function permisosDeEntrada(personas) {
     // si contiene entrada (true) y si es mayor de edad. agregar en un nuevo array, las personas que cumplan
     // el nuevo array debe contener unicamente el nombre de las personas
     // tu código:
-
+    let nuevoArray =[];
+    for (let i = 0; i < personas.length; i++) {
+        if (personas[i].edad>= 18 && personas[i].entrada){
+            nuevoArray.push(personas[i].nombre)
+        }
+        
+    }
+    return nuevoArray
 }
 
 //Crea un objeto "libro" con propiedades como título, autor y año de publicación. 
