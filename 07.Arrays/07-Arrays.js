@@ -151,7 +151,20 @@ function dosEnUno(arr1, arr2){
 function matrizTranspuesta(matriz){
     //Escribe una función que reciba una matriz (array de arrays) y devuelva la matriz transpuesta, es decir, intercambiando filas por columnas.
     //Tu codigo:
-
+   
+     transpuesta = [];
+    
+    
+    for (let j = 0; j < matriz[0].length; j++) {
+       
+        transpuesta[j] = [];
+        
+        for (let i = 0; i <  matriz.length; i++) {
+            
+            transpuesta[j][i] = matriz[i][j];
+        }
+}
+    return transpuesta
 }
 
 module.exports = {

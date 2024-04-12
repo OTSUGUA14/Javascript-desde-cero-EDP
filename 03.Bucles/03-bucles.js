@@ -66,11 +66,14 @@ function BinarioADecimal(num) {
     // La funcion recibe por parametro, un numero binario pero en tipo de dato String
     // debes tomar este numero binario y ayudandote de un bucle pasarlo a binario
     // tu código:👇
-    for (let i = 0; i <= num.length; i++) {
-        const element = array[i];
-        
+    total=0
+    posicion=0
+    
+    for (let i =(num.length-1); i >= 0; i--) {
+        total+=parseInt(num[i])*(2**posicion)
+        posicion+=1
     }
-
+    return total
 }
 
 function esPrimo(numero) {
@@ -78,6 +81,13 @@ function esPrimo(numero) {
     //Un número primo es aquel que solo es divisible por 1 y por sí mismo.
     //Si el numero pasado es primo devolve: numero " es primo." , caso contrario: numero " no es primo."
     // Tu código:👇
+    contador=0
+    for (let i = 1; i < numero; i++) {
+        if (numero%i==0){
+            contador+=1
+        }
+    }
+    return contador==1 ? numero+" es primo." : numero+" no es primo."
 
 }
 
@@ -85,7 +95,12 @@ function invertirCadena(cadena) {
     //La función toma una cadena de texto como parámetro, devuelve la cadena invertida.
     //Ejemplo: 'Hola' -> devolver 'aloH'
     //Tu codigo:👇
-
+    cadenaInversa=""
+    for (let i = cadena.length-1; i >=0; i--) {
+        cadenaInversa+=cadena[i]
+        
+    }
+    return cadenaInversa
 }
 
 module.exports = {

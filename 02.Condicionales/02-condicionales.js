@@ -36,14 +36,29 @@ function esMayor(num1, num2, num3){
     // Escribe un programa que determine el mayor de tres números dados.
     // Devolver el numero mayor
     // Tu código 👇:
+    if (num1 >num2 && num1>num3){
+        return num1
+    }
+    else if (num2 >num1 && num2>num3){
+        return num2
+    }
+    else {return num3}
+            
 
 }
+
 
 function esPrimo(num){
     // Escribe un programa que determine si un número dado es primo.
     // Devolver true o false
     // Tu código 👇:
-
+    contador=0
+    for (let i = 1; i < num; i++) {
+        if (num%i==0){
+            contador+=1
+        }
+    }
+    return contador==1 ? true : false
 }
 
 module.exports = {
