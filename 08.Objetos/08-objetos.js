@@ -84,7 +84,7 @@ let libro = {
   
   // Función para mostrar la información del libro
   function mostrarInformacionLibro(libro) {
-    return "El libro: "+libro.titulo+", escrito por: "+libro.autor+" fue publicado en: "+libro.anioPublicacion
+    return `El libro ${libro.título}, escrito por ${libro.autor} , fue publicado en ${libro.añoPublicación}.`
   }
 
 module.exports = {
