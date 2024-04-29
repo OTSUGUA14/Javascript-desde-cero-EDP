@@ -1,15 +1,28 @@
+const { array } = require("yargs")
+
 function arrayDuplicados(array){
     // Por parametros recibiras un array de numeros, tendras que el array duplicado! Usa: Metodo .map()
     // Tu codigo:
-
+        duplicado=array.map(function(numero){
+            return numero *2
+        })
+        return duplicado
 }
 
 const nombresPersonas = (array) => {
     // Por parametros recibiras un array de objetos. tendras que iterar entre ellos y devolver un array con todos los nombres
     // Usa metodo .map().. Ayuda => la propiedad de los nombres es => name.
     // Tu codigo:
-
+    duplicado=array.map(function(numero){
+        return numero *2
+    })
+    return duplicado
 }
+        nombres=array.map(function(name){
+            return array[name]
+        })
+        return nombres
+
 
 function masImpuestos(array){
     // Tienes un array de objetos que contiene como propiedades => producto, nSerie, precio. tendrás que calcular impuestos del 10% y agregarlo como prodiedad

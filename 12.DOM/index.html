@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/styles.css">
+    <title>Chatbot</title>
+</head>
+<body>
+
+    <section id="chat">
+        <div id="header-chat">
+            <img src="https://cdn3.iconfinder.com/data/icons/chat-bot-emoji-blue-filled-color/300/14134081Untitled-3-4096.png" alt="">
+            <h3>OtsuBot</h3>
+            <button id="btn-closed-chat">❌</button>
+            <div id="warning-info">
+                <small>Cuidado al pasar información, no pases usuario y pw</small>
+                <small id="btn-warning">❌</small>
+            </div>
+        </div>
+        <div id="contedor-msj">
+            <p class="msj-bot">Hola buenas tardes, estoy para ayudar escribe: /ayuda</p>
+            <p class="msj-persona">/ayuda</p>
+        </div>
+        <div>
+            <input id="input-msj" type="text" placeholder="Escribe: /ayuda">
+            <button id="btn-send">▶️</button>
+        </div>
+    </section>
+    <script src="src/script.js"></script>
+</body>
+</html>

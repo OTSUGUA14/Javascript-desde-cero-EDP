@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section{
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+}
+
+#header-chat{
+    display: flex;
+    justify-content: space-between;
+    background-color: aqua;
+    border: 2px solid lightblue;
+    padding-left: 8px;
+    padding-right: 8px;
+    flex-wrap: wrap;
+}
+
+#header-chat img{
+    width: 30px;
+}
+#header-chat button{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: 2px solid red;
+    border-radius: 100%;
+
+}
+
+#header-chat button:hover{
+    color: white;
+    background-color: black;
+    border: 2px solid black
+}
+
+.msj-persona{
+    background-color: rgba(255, 0, 0, 0.45);
+    border-radius: 8px;
+    text-align: end;
+    padding: 8px;
+}
+.msj-bot{
+    background-color: aqua;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+#contedor-msj{
+    width: 100%;
+    overflow-y: scroll;
+    height: 200px;
+}
+
+.invisible{
+    display: none;
+}

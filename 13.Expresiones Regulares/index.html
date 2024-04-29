@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            text-align: center;
+            gap: px;
+            align-items: center;
+        }
+
+        form div{
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+    <form>
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre">
+        </div>
+        
+        <div>
+            <label for="dni">DNI</label>
+            <input type="text" id="dni">
+        </div>
+        
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email">
+        </div>
+        
+        <div>
+            <label for="password">Contraseña</label>
+            <input type="password" id="password">
+        </div>
+        <button id="enviar">Enviar</button>
+    </form>
+    <script src="./main.js"></script>
+</body>
+</html>
