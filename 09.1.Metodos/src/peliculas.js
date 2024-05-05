@@ -21,30 +21,78 @@ const pelis = document.querySelector('.peli') // Obtenemos sección de pelis. do
 
 //BOTON TODOS => Debe devolver todas las portadas (img) de las peliculas que hay.
 const allFilms = () => {
+    pelis.innerHTML = '';
 
-}
+    // Iterar sobre todas las películas
+    peliculas.forEach(pelicula => {
+        // Crear un elemento img
+        const img = document.createElement('img');
+        // Asignar la URL de la imagen de la película al atributo src del elemento img
+        img.src = pelicula.img;
+        // Agregar la imagen al contenedor de películas
+        pelis.appendChild(img);
+    });
+};
+
 
 //BOTON ESTRENOS => Debe devolver las portadas (img) solo de las peliculas que esten en estreno 'estreno: true'
 const estrenos = () => {
-
+    pelis.innerHTML=" ";
+    peliculas.forEach(pelicula =>{
+        const img=document.createElement('img');
+        img.src=pelicula.img;
+        if (pelicula.estreno) {
+            pelis.appendChild(img)
+        }
+    })
 }
 
 //BOTON ACCION => Debe devolver solo aquellas peliculas que contengan como genero ‘Acción’.
 const accion = () => {
+    pelis.innerHTML=" ";
+    peliculas.forEach(pelicula =>{
+        const img=document.createElement('img');
+        img.src=pelicula.img;
+        if (pelicula.genero=="Acción") {
+            pelis.appendChild(img)
+        }
+    })
 
 }
 
 //BOTON DRAMA => Debe devolver solo aquellas peliculas que contengan como genero ‘Drama’.
 const drama = () => {
-
+    pelis.innerHTML=" ";
+    peliculas.forEach(pelicula =>{
+        const img=document.createElement('img');
+        img.src=pelicula.img;
+        if (pelicula.genero=="Drama") {
+            pelis.appendChild(img)
+        }
+    })
 }
 
 //BOTON CRIMEN => Debe devolver solo aquellas peliculas que contengan como genero ‘Crimen’.
 const crimen = () => {
-
+    pelis.innerHTML=" ";
+    peliculas.forEach(pelicula =>{
+        const img=document.createElement('img');
+        img.src=pelicula.img;
+        if (pelicula.genero=="Crimen") {
+            pelis.appendChild(img)
+        }
+    })
 }
 
 //BOTON TODOS => debe devolver aquellas peliculas que NO estén dentro de los generos anteriores.
 const otros = () => {
-
+    gener=["Crimen","Drama","Acción"]
+    pelis.innerHTML=" ";
+    peliculas.forEach(pelicula =>{
+        const img=document.createElement('img');
+        img.src=pelicula.img;
+        if (pelicula.genero !="Crimen" && pelicula.genero !="Drama" && pelicula.genero != "Acción") {
+            pelis.appendChild(img)
+        }
+    })
 }

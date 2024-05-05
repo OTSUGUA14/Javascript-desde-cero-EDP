@@ -26,13 +26,56 @@ let addColumn = false; // Variable que debe cambiar según -> Si existe la 4 col
 
 // BOTON DATOS ALUMNO => Deberia devolver la tabla de alumnos con los datos personales de cada alumno (nombre, apellido, dni).
 const btnDate = () =>{
-
+  headerTable.appendChild(thridColumn)
+    deleteColumn()
+      // Limpiar contenido previo en caso de que haya
+    bodyTableAlumnos.innerHTML = '';
+      // Agregar el título de la tercera columna
+    thridColumn.textContent = 'DNI';
+      // Recorrer el array de alumnos
+    alumnos.forEach(alumno => {
+          // Crear una nueva fila
+        const row = document.createElement('tr');
+          // Crear celdas para nombre, apellido y DNI
+        const cellNombre = document.createElement('td');
+        cellNombre.textContent = alumno.nombre;
+        const cellApellido = document.createElement('td');
+        cellApellido.textContent = alumno.apellido;
+        const cellDNI = document.createElement('td');
+        cellDNI.textContent = alumno.dni;
+          // Agregar las celdas a la fila
+        row.appendChild(cellNombre);
+        row.appendChild(cellApellido);
+        row.appendChild(cellDNI);
+          // Agregar la fila al cuerpo de la tabla
+          bodyTableAlumnos.appendChild(row);
+      });
 }
-    
 
 // BOTON PROMEDIOS => Deberia devolver la tabla de alumnos con el promedio de cada alumno, este consta en 3 notas (examen1, examen2, examen3).
 const btnPromedios = () => {
+    deleteColumn()
+    bodyTableAlumnos.innerHTML = '';
+    headerTable.appendChild(thridColumn)
+    thridColumn.textContent = 'PROMEDIO';
+    alumnos.forEach(alumno=>{
 
+        const row = document.createElement('tr');
+        
+        const cellNombre = document.createElement('td');
+        cellNombre.textContent = alumno.nombre;
+        const cellApellido = document.createElement('td');
+        cellApellido.textContent = alumno.apellido;
+        const cellPromedio = document.createElement('td');
+        cellPromedio.textContent = Math.round(((alumno.examen1 + alumno.examen2 + alumno.examen3)/3));
+      
+        row.appendChild(cellNombre);
+        row.appendChild(cellApellido);
+        row.appendChild(cellPromedio);
+        
+        
+        bodyTableAlumnos.appendChild(row);
+    })
 }
 
 
@@ -40,20 +83,93 @@ const btnPromedios = () => {
 // Además deberás crear una columna* con el porcentaje de asistencias.
 // *la columna se deberá eliminar si se selecciona otro boton
 const btnAsistencia = () => {
+  bodyTableAlumnos.innerHTML=" ";
+  headerTable.appendChild(thridColumn)
+  thridColumn.textContent="ASISTENCIA"
+  
+  if (!addColumn){
+    const cellPorcentaje=document.createElement("th");
+    cellPorcentaje.id='delete'
+    cellPorcentaje.textContent="Porcentaje" 
+    headerTable.appendChild(cellPorcentaje)
+    addColumn = true;
+  }
+  alumnos.forEach(alumno=>{
+
+    const row = document.createElement('tr');
+    
+    const cellNombre = document.createElement('td');
+    cellNombre.textContent = alumno.nombre;
+    const cellApellido = document.createElement('td');
+    cellApellido.textContent = alumno.apellido;
+    const cellAsistencia = document.createElement('td');
+    cellAsistencia.textContent = alumno.asistencias+"/24"
+    const cellPorcentaje = document.createElement('td');
+    cellPorcentaje.textContent = Math.round((alumno.asistencias/24) *100)+"%"
+  
+    row.appendChild(cellNombre);
+    row.appendChild(cellApellido);
+    row.appendChild(cellAsistencia);
+    row.appendChild(cellPorcentaje);
+    
+    
+    bodyTableAlumnos.appendChild(row);
+})
 
 } 
-
 
 // BOTON APROBADOS => - Deberia devolver la tabla de alumnos en ella solo aquellos que tengan aprobado el cursado, en base a las siguientes condiciones:
 // Un promedio ≥ 70 y un porcentaje de asistencia ≥ 70
 const btnAprobados = () => {
+  bodyTableAlumnos.innerHTML=" ";
+  thridColumn.remove()
+  deleteColumn()
+  
+  alumnos.forEach(alumno=>{
 
+    const row = document.createElement('tr');
+    
+    const cellNombre = document.createElement('td');
+    cellNombre.textContent = alumno.nombre;
+    const cellApellido = document.createElement('td');
+    cellApellido.textContent = alumno.apellido;
+    
+    if ( Math.round(((alumno.examen1 + alumno.examen2 + alumno.examen3)/3)) >=70 && Math.round((alumno.asistencias/24) *100)>=70) {
+      row.appendChild(cellNombre);
+      row.appendChild(cellApellido);
+   
+    }
+  
+    
+    
+    
+    bodyTableAlumnos.appendChild(row);
+})
 }
 
 
 // Deberia devolver la tabla de alumnos con aquellos que no aprobaron el cursado.
 const btnReprobados = () => {
+  bodyTableAlumnos.innerHTML=" ";
+  thridColumn.remove()
+  deleteColumn()
+  
+  alumnos.forEach(alumno=>{
 
+    const row = document.createElement('tr');
+    
+    const cellNombre = document.createElement('td');
+    cellNombre.textContent = alumno.nombre;
+    const cellApellido = document.createElement('td');
+    cellApellido.textContent = alumno.apellido;
+    
+    if ( Math.round(((alumno.examen1 + alumno.examen2 + alumno.examen3)/3)) >=70 && Math.round((alumno.asistencias/24) *100)>=70) {
+    }else{
+      row.appendChild(cellNombre);
+      row.appendChild(cellApellido); 
+    }
+    bodyTableAlumnos.appendChild(row);
+})
 }
 
 
