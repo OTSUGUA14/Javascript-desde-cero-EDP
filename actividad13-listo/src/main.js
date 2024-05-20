@@ -27,12 +27,12 @@ const valueRegex = {
 
 $btnEnviar.addEventListener('click', (event) => {
     event.preventDefault();
-    console.log(valueRegex);
     regexNombre.test($nombre.value) ? (Bien("nombre"),valueRegex.nombre=true) : Mal("nombre")
     regexUsuario.test($usuario.value) ?( Bien("usuario"),valueRegex.usuario=true) : Mal("usuario")
     regexPassword.test($password.value) ? (Bien("password"),valueRegex.password=true) : Mal("password")
     $repetir.value ==$password.value ? (Bien("repetir"),valueRegex.repetir=true) : Mal("repetir")
     regexEmail.test($email.value) ? (Bien("email"),valueRegex.email=true) : Mal("email")
+
     if (valueRegex.nombre && valueRegex.usuario && valueRegex.password && valueRegex.repetir && valueRegex.email){
         var imagen = document.createElement("img");
         imagen.src="https://3.bp.blogspot.com/-Gykg9fBG9D8/UgVlHlmZ0oI/AAAAAAABa18/DXi-Yv9sVbc/s1600/Muchas+felicidades+3.png"
@@ -68,7 +68,7 @@ function Mal(mal){
         }
     }
     if(mal=="password"){
-        console.log("xd");
+        
         var parrafos = $contenedorContra.querySelector("p");
         if (parrafos){
         }else{

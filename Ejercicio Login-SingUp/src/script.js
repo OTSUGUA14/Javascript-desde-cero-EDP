@@ -1,56 +1,92 @@
+
+
+
+regex={
+
+    nombre:/^[a-zA-ZÀ-ÿ\s]{4,20}$/,
+    apellido:/^[a-zA-ZÀ-ÿ\s]{4,20}$/,
+    edad:/^[\d]{2,2}$/,
+    usuario:/^[a-zA-ZÁ-ÿ\s][^@$!%*#?&]{1,16}$/,
+    password:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{8,12}$/,
+    repetir:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{8,12}$/,
+    email:/^[a-zA-Z0-9\.\-_]+@[a-zA-Z]+\.(com|net|gov.ar)$/
+}
+
 const $ = selector => document.querySelector(selector)
+const input=document.querySelectorAll('.registro input,#btn-registro')
 
-const regexNombre=/^[a-zA-ZÁ-ÿ\s]{1-40}$/
-const regexUsuario=/^[a-zA-ZÁ-ÿ\s][^@$!%*#?&]]{1-16}$/
-const regexPassword=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{8,12}$/
-const regexEmail=/^[a-zA-Z0-9\.\-_]+@[a-zA-Z]+\.(com|net|gov.ar)$/
 
-// const forRegistro =document.querySelectorAll("#registro input")
-// forRegistro.forEach(element =>{
+const parrafo = document.getElementsByTagName('p')
+input.forEach(input =>{
+    input.addEventListener('keydown',()=>{
+        if (input.name=="password") {
+            
+            contra=input.value
+        }
+        if (input.name=="repetir") {
+            if (input.value===contra) {
+                parrafo[5].classList.add('ocultar')
+                valueRegex.repetir=true
+            }else{
+                parrafo[5].classList.remove('ocultar')
+            }}
+        else{
+            
+            validacion(input.name,input.value) 
+            input.addEventListener('blur',()=> validacion(input.name,input.value))
+        }})
+   
+    }
+)
 
-// })
-const $nombreRegistro = $('#nombre')
-const $apellidoRegistro = $('#apellido')
-const $usuarioRegistro = $('#usuario')
-const $passwordRegistro = $('#password')
-const $emailRegistro = $('#email')
-const $btnRegistro = $('#btn-registro')
-const $forRegistro=$('#for')
+function validacion (names,value){
+    if ((regex[names].test(value))) {
+        valueRegex[names]=true
+        for (let i = 0; i < parrafo.length; i++) {
+            nameAtri=parrafo[i].getAttribute('name')
+            if (nameAtri==names) {
+                parrafo[i].classList.add('ocultar')
+                
+            }
+            
+        }
+    }else{
+            
+        for (let i = 0; i < parrafo.length; i++) {
+            nameAtri=parrafo[i].getAttribute('name')
+            if (nameAtri==names) {
+                parrafo[i].classList.remove('ocultar')
+                
+            }
+            
+        }
+    }
+
+}
+
+const $registro=$('.registro')
+const $sesion=$('#ini-sesion')
+const $btnRegistro=$('#btn-registro')
+
+
 const valueRegex = {
     nombre:false,
-    appellido:false,
+    apellido:false,
     edad:false,
     usuario:false,
     password:false,
-    repertit:false,
+    repetir:false,
     email:false
 }
 
 $btnRegistro.addEventListener("click", (event) =>{
+
     event.preventDefault();
-    regexNombre.test($nombreRegistro) ? valueRegex.nombre ==true : Mal("nombre")
-    regexNombre.test($apellidoRegistro) ? valueRegex.appellido ==true : false
-    regexUsuario.test($usuarioRegistro) ? valueRegex.usuario ==true : false
-    regexPassword.test($passwordRegistro) ? valueRegex.password ==true : false
-    regexEmail.test($emailRegistro) ? valueRegex.email ==true : false
-})
 
-
-function Mal(mal){
-    const p = document.createElement('p')
-    if(mal=="nombre"){
-        console.log("entro")
-        p.innerText="1 a 40 Chars.No puede contener números"
-        $forRegistro.appendChild(p)
-
-    }else if(mall==usuario){
-
-    }else if(mall==password){
-        
-    }else if(mall==repetir){
-        
-    }else{
-
+    if (valueRegex.nombre && valueRegex.apellido && valueRegex.edad && valueRegex.usuario && valueRegex.password && valueRegex.repetir && valueRegex.email){
+        $sesion.classList.remove('ocultar');
+        $registro.classList.add('ocultar')
     }
-
 }
+
+)
