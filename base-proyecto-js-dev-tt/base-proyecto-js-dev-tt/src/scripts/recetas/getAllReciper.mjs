@@ -5,7 +5,7 @@ export const getAllReciper= async()=>{
     const  {recipes}  = await res.json();
 
 
-    
+    document.querySelector('#recetas').innerHTML =""
 
     recipes.forEach (receta=> {
         document.querySelector('#recetas').innerHTML +=`

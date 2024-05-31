@@ -15,9 +15,9 @@ const addToCart =async (id) => {
 }
 
 export const getAllProducts =async () => {
- 
+    document.querySelector('#products').innerHTML = ""
     try{
-
+        
         const res = await fetch('https://dummyjson.com/products')
         const { products } = await res.json();
 

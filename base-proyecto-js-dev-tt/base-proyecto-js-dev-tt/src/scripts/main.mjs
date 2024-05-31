@@ -6,9 +6,11 @@ import { getAllProducts } from "./productos/getAllProducts.mjs";
 import { vali } from "./registro/valiRegistro.mjs";
 import { valueRegex } from "./registro/valiRegistro.mjs";
 import { getAllReciper } from "./recetas/getAllReciper.mjs";
-vali()
+import { getAllUser } from "./users/getAllUser.mjs";
+
 window.onload = () => {
     getAllUsers();
+    vali();
 } 
 
 
@@ -50,6 +52,8 @@ const $conterPro=$('#products')
 const $conterRece=$('#recetas')
 const $conterUser=$('#users')
 const $conterPost=$('#posts')
+
+
 // Manje nuestro estado de LOGIN.
 
 if(!localStorage.getItem('stateLogin')){
@@ -109,6 +113,7 @@ $btnIniciar.addEventListener('click', () =>{
 
 })
 
+
 // ________ REGISTRAR UN USUARIO ______________
 $Registrar.addEventListener('click', (e) => {
     e.preventDefault();
@@ -123,9 +128,17 @@ $Registrar.addEventListener('click', (e) => {
         $btnFormInicio.classList.remove('ocultar')
     }
 })
+// __________ Mostrar USUARIOS__________
 
+$btnUser.addEventListener('click',()=>{
+   
+    getAllUser();
+    $conterPost.classList.add("ocultar")
+    $conterPro.classList.add("ocultar")
+    $conterRece.classList.add("ocultar")
+    $conterUser.classList.remove("ocultar")
 
-
+})
 // __________ MOSTRAR TODOS LAS RECETAS __________
 $btnReceta.addEventListener('click', ()=>{
    
@@ -133,20 +146,31 @@ $btnReceta.addEventListener('click', ()=>{
     $conterPost.classList.add("ocultar")
     $conterPro.classList.add("ocultar")
     $conterRece.classList.remove("ocultar")
-    $conterUser .classList.add("ocultar")
+    $conterUser.classList.add("ocultar")
 })
 
 // __________ MOSTRAR TODOS LOS POST DE DUMMYJSON __________
 
 $btnPosts.addEventListener('click', () => {
     getAllPost();
+   
     $conterPost.classList.remove("ocultar")
     $conterPro.classList.add("ocultar")
     $conterRece.classList.add("ocultar")
     $conterUser .classList.add("ocultar")
     
 })
+// __________ COMENTARIO DE  POST __________
 
+// ______________ Evento Productos ________________________
+$btnProducto.addEventListener('click', () => {
+    getAllProducts()
+    $conterPost.classList.add("ocultar")
+    $conterPro.classList.remove("ocultar")
+    $conterRece.classList.add("ocultar")
+    $conterUser .classList.add("ocultar")
+    
+})
 // ___________ FORM LOGIN __________ ( OBTENEMOS LOS DATOS PASADOS POR LOGIN Y COMPARAMOS)
 
 $btnLogIn.addEventListener('click', (e) => {
@@ -195,15 +219,7 @@ $btnCerrarSesion.addEventListener('click', () => {
         console.log(logInState);
 })
 
-// ______________ Evento Productos ________________________
-$btnProducto.addEventListener('click', () => {
-    getAllProducts()
-    $conterPost.classList.add("ocultar")
-    $conterPro.classList.remove("ocultar")
-    $conterRece.classList.add("ocultar")
-    $conterUser .classList.add("ocultar")
-    
-})
+
 
 
 
