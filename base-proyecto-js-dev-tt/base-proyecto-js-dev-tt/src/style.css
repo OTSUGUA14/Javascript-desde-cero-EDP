@@ -1,4 +1,6 @@
-@import url('./card.css');
+@import url('./cardProduct.css');
+@import url('./cardUsers.css');
+@import url('./cardPost.css');
 
 *{
     margin: 0;
@@ -10,6 +12,11 @@
     width: 100%;
     color: red;
     font-size: 12px;
+}
+.datos{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
 }
 
 body{
@@ -56,11 +63,6 @@ main{
     justify-content: center;
     align-items: center;
 }
-.datos{
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-}
 
 form {
     display: flex;
@@ -80,6 +82,8 @@ form {
     justify-content: space-around;
     width: 100%;
 }
+
+
 
 
 
@@ -132,3 +136,19 @@ footer ul li{
     width: 80%;
     justify-content: center;
 }
+
+.btn-header{
+    border: 2px solid #2f2f2f;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #2f2f2f;
+    color: antiquewhite;
+    transition: ease all 300ms;
+}
+
+.btn-header:hover{
+    box-shadow: 4px 6px aqua ;
+}
+
+/*carta*/

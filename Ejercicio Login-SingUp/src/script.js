@@ -26,8 +26,10 @@ input.forEach(input =>{
         if (input.name=="password") {
             
             contra=input.value
+        
         }
         if (input.name=="repetir") {
+           
             if (input.value===contra) {
                 parrafo[5].classList.add('ocultar')
                 valueRegex.repetir=true
