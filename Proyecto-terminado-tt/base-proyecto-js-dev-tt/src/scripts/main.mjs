@@ -54,6 +54,7 @@ const $conterUser=$('#users')
 const $conterPost=$('#posts')
 
 
+
 // Manje nuestro estado de LOGIN.
 
 if(!localStorage.getItem('stateLogin')){
@@ -154,6 +155,7 @@ $btnReceta.addEventListener('click', ()=>{
 $btnPosts.addEventListener('click', () => {
     getAllPost();
    
+   
     $conterPost.classList.remove("ocultar")
     $conterPro.classList.add("ocultar")
     $conterRece.classList.add("ocultar")
@@ -161,9 +163,13 @@ $btnPosts.addEventListener('click', () => {
     
 })
 // __________ COMENTARIO DE  POST __________
+// $conterComent.addEventListener('click',() =>{
+//     console.log("xd")
+// })
 
 // ______________ Evento Productos ________________________
 $btnProducto.addEventListener('click', () => {
+    
     getAllProducts()
     $conterPost.classList.add("ocultar")
     $conterPro.classList.remove("ocultar")
@@ -171,6 +177,7 @@ $btnProducto.addEventListener('click', () => {
     $conterUser .classList.add("ocultar")
     
 })
+
 // ___________ FORM LOGIN __________ ( OBTENEMOS LOS DATOS PASADOS POR LOGIN Y COMPARAMOS)
 
 $btnLogIn.addEventListener('click', (e) => {

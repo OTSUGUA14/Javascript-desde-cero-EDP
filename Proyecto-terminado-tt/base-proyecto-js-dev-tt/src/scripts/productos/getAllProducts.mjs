@@ -15,14 +15,16 @@ const addToCart =async (id) => {
 }
 
 export const getAllProducts =async () => {
+
     document.querySelector('#products').innerHTML = ""
     try{
         
+        
+  
         const res = await fetch('https://dummyjson.com/products')
         const { products } = await res.json();
 
         products.forEach(product => {
-            
             document.querySelector('#products').innerHTML += `
             <div class="card2">
             <div class="card2__wrapper">
@@ -50,11 +52,11 @@ export const getAllProducts =async () => {
             `
         });
 
-        const buttons = document.querySelectorAll('#btn-product-id')
+        const buttons = document.querySelectorAll('.card2__title')
         
         buttons.forEach( btn => {
             btn.addEventListener('click', () => {
-                addToCart(btn.dataset.id)
+                console.log("hola");
             })
         })
 
